@@ -1,0 +1,28 @@
+{
+    "name": "victoire/theme-listing-socialbuttons-bundle",
+    "type": "symfony-bundle",
+    "description": "Victoire Cms social buttons listing theme",
+    "keywords": ["cms", "victoire", "socialbuttons", "listing", "theme"],
+    "homepage": "http://appventus.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leny Bernard",
+            "email": "leny@appventus.com"
+        }
+    ],
+    "require": {
+        "php"                                 : ">=5.3.3",
+        "symfony/framework-bundle"            : "~2.3",
+
+        "victoire/cms-bundle"                : "1.0.*@dev",
+        "victoire/listing-bundle"                : "1.0.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "Victoire\\Theme\\Listing\\SocialButtonsBundle": "" }
+    },
+    "minimum-stability": "dev",
+
+
+    "target-dir": "Victoire/Theme/Listing/SocialButtonsBundle"
+}

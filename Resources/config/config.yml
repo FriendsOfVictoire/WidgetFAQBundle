@@ -1,0 +1,11 @@
+jms_translation:
+    configs:
+        victoire_widget_faq_bundle:
+            dirs: ["@VictoireWidgetFAQBundle"]
+            output_dir: "src/Victoire/Widget/FAQBundle/Resources/translations"
+
+victoire_core:
+    widgets:
+        FAQ:
+            class: "Victoire\\Widget\\FAQBundle\\Entity\\WidgetFAQ"
+            name: FAQ

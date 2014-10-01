@@ -1,0 +1,38 @@
+{% extends 'VictoireCoreBundle:Widget:show.html.twig' %}
+
+{% block content %}
+    <ul class="list-unstyled faq">
+        {% for key, item in widget.faqItems %}
+            {% include "VictoireWidgetFAQBundle::showItem.html.twig" with { 'item': item} %}
+        {% endfor %}
+    </ul>
+
+    <script>
+        $(document).on('click', '.faq-question', function(event) {
+            $(this).parents('li').toggleClass('faq-is-open'); //WTF...
+        });
+
+        $(document).ready(function() {
+            var anchor = window.location.hash.replace("#", "");
+            $(".collapse").collapse('hide');
+            $("#" + anchor).collapse('show');
+            $("#" + anchor).parents('li').first().addClass('faq-is-open');
+            slideToFaqElement{{ widget.id }}($("#" + anchor), 0);
+
+        });
+
+
+        function slideToFaqElement{{ widget.id }}(element, duration, effect) {
+            if (duration == undefined) { var duration = 1500; }
+
+            //get the top offset of the target anchor
+            var target_offset = $(element).offset();
+
+            if (target_offset != undefined) {
+                var target_top = parseInt(target_offset.top - 140);
+                //goto that anchor by setting the body scroll top to anchor top
+                $('html, body').animate({scrollTop: target_top}, duration);
+            }
+        }
+    </script>
+{% endblock content %}

@@ -1,0 +1,18 @@
+services:
+    victoire_core.widget_faq_content_resolver:
+        class: Victoire\Widget\ListingBundle\Resolver\WidgetListingContentResolver
+        parent: victoire_core.widget_listing_content_resolver
+        tags:
+            - { name: victoire_widget.widget_content_resolver, alias: FAQ }
+
+    #alias to the entity
+    victoire.widget.faq:
+        class: Victoire\Widget\FAQBundle\Entity\WidgetFAQ
+        tags:
+            - { name: victoire_cms.theme, widget: FAQ }
+
+    #alias to the form
+    victoire.widget.form.faq:
+        class: Victoire\Widget\FAQBundle\Form\WidgetFAQType
+        tags:
+            - { name: form.type , alias: victoire_widget_form_faq }

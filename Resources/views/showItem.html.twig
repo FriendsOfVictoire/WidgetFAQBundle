@@ -1,0 +1,14 @@
+<li>
+    <dl>
+        <dt>
+            <a class="faq-question collapsed" data-toggle="collapse" data-parent="#faq" href="#collapse-{{item.id}}">
+                {{ item.question }}
+            </a>
+        </dt>
+
+        <dd class="collapse faq-answer" id="collapse-{{item.id}}">
+            {{ item.answer|nl2br }}
+        </dd>
+    </dl>
+</li>
+

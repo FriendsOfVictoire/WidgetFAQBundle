@@ -1,0 +1,18 @@
+<li class="vic-col-lg-12 vic-request-block">
+  <div class="vic-panel vic-panel-default">
+    <div class="vic-panel-heading">
+        <span class="vic-circled request-number"></span>
+        {{ form_row(item.removeButton) }}
+        {% do item.removeButton %}
+    </div>
+        <div id="vic-nl-form" class="vic-panel-body vic-panel-body-request vic-nl-form">
+            <div class="row">
+                <div class="vic-col-md-12">
+                    {{ form_row(item.title) }}
+                    {{ form_row(item.answer) }}
+                    {{ form_rest(item) }}
+                </div>
+            </div>
+      </div>
+  </div>
+</li>
