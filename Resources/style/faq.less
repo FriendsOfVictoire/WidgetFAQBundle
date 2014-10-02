@@ -1,0 +1,60 @@
+.rotate (@deg) {
+    -webkit-transform: rotate(@deg);
+    -moz-transform: rotate(@deg);
+    -ms-transform: rotate(@deg);
+    -o-transform: rotate(@deg);
+}
+
+/*///////
+// FAQ //
+/////////
+//MODULE/
+///////*/
+
+.faq {
+    margin: 30px 0;
+    list-style: none;
+
+    dl {
+        margin: 0;
+    }
+
+    dt {
+        margin-bottom: 20px;
+    }
+}
+
+.faq-question {
+    &:before {
+        position: absolute;
+        display: inline-block;
+        font-family: "FontAwesome";
+        font-style: normal;
+        font-weight: normal;
+        -webkit-font-smoothing: antialiased;
+        content: "\f0d7";
+        margin-left: -21px;
+    }
+}
+
+/*///////
+// FAQ //
+/////////
+//STATE/
+///////*/
+
+.faq-is-open {
+    margin-bottom: 60px;
+
+    .faq-question {
+        color: #313131;
+    }
+}
+
+.faq-question {
+    &.collapsed {
+        &:before {
+            .rotate(-90deg);
+        }
+    }
+}

@@ -1,7 +1,7 @@
 {% extends 'VictoireCoreBundle:Widget:show.html.twig' %}
 
 {% block content %}
-    <ul class="list-unstyled faq">
+    <ul class="faq">
         {% for key, item in widget.faqItems %}
             {% include "VictoireWidgetFAQBundle::showItem.html.twig" with { 'item': item} %}
         {% endfor %}
