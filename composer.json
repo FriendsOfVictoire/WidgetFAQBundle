@@ -1,5 +1,5 @@
 {
-    "name": "victoire/faq-widget",
+    "name": "appventus/faq-widget",
     "type": "symfony-bundle",
     "description": "Victoire faq widget",
     "keywords": ["victoire", "FAQ", "widget"],
