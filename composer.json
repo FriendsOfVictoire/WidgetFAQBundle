@@ -15,7 +15,7 @@
         "php"                      : ">=5.3.3",
         "symfony/framework-bundle" : "~2.3",
         "victoire/victoire"        : "dev-master",
-        "victoire/listing-widget"  : "dev-master"
+        "appventus/listing-widget"  : "dev-master"
     },
     "autoload": {
         "psr-0": { "Victoire\\Widget\\FAQBundle": "" }
