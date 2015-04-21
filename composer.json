@@ -12,10 +12,10 @@
         }
     ],
     "require": {
-        "php"                      : ">=5.3.3",
-        "symfony/framework-bundle" : "~2.3",
-        "victoire/victoire"        : "dev-master",
-        "friendsofvictoire/listing-widget"  : "dev-master"
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3",
+        "victoire/victoire": "dev-master",
+        "friendsofvictoire/listing-widget": "dev-master"
     },
     "autoload": {
         "psr-0": { "Victoire\\Widget\\FAQBundle": "" }
