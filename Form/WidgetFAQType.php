@@ -18,7 +18,7 @@ class WidgetFAQType extends WidgetListingType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $entityName = $options['entityName'];
+        $businessEntityId = $options['businessEntityId'];
         $namespace = $options['namespace'];
         $mode = $options['mode'];
 
@@ -30,7 +30,7 @@ class WidgetFAQType extends WidgetListingType
                     'by_reference' => false,
                     'options'      => array(
                         'namespace'  => $namespace,
-                        'entityName' => $entityName,
+                        'businessEntityId' => $businessEntityId,
                         'mode'       => $mode
                     ),
                     "attr"         => array('id' => 'static')
