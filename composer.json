@@ -1,14 +1,14 @@
 {
     "name": "friendsofvictoire/faq-widget",
     "type": "symfony-bundle",
-    "description": "Victoire faq widget",
-    "keywords": ["victoire", "FAQ", "widget"],
-    "homepage": "http://appventus.com",
+    "description": "Victoire DCMS FAQ widget",
+    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "Dynamic", "CMS", "FAQ"],
+    "homepage": "http://victoire.io",
     "license": "MIT",
     "authors": [
         {
             "name": "Leny BERNARD",
-            "email": "leny@appventus.com"
+            "email": "leny@victoire.io"
         }
     ],
     "require": {
