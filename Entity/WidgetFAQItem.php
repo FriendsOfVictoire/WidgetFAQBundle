@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 
 /**
- * WidgetFAQItem
+ * WidgetFAQItem.
  *
  * @ORM\Table("vic_widget_faq_item")
  * @ORM\Entity
@@ -14,7 +14,7 @@ use Victoire\Widget\ListingBundle\Entity\WidgetListingItem;
 class WidgetFAQItem extends WidgetListingItem
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -34,14 +34,13 @@ class WidgetFAQItem extends WidgetListingItem
      *
      * @ORM\ManyToOne(targetEntity="WidgetFAQ", inversedBy="faqItems")
      * @ORM\JoinColumn(name="faq_id", referencedColumnName="id", onDelete="CASCADE")
-     *
      */
     protected $faq;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -49,7 +48,7 @@ class WidgetFAQItem extends WidgetListingItem
     }
 
     /**
-     * Get question
+     * Get question.
      *
      * @return string
      */
@@ -59,7 +58,8 @@ class WidgetFAQItem extends WidgetListingItem
     }
 
     /**
-     * Set answer
+     * Set answer.
+     *
      * @param string $answer
      *
      * @return WidgetFAQItem
@@ -72,7 +72,7 @@ class WidgetFAQItem extends WidgetListingItem
     }
 
     /**
-     * Get answer
+     * Get answer.
      *
      * @return string
      */
@@ -82,7 +82,8 @@ class WidgetFAQItem extends WidgetListingItem
     }
 
     /**
-     * Set faq
+     * Set faq.
+     *
      * @param \Victoire\Widget\FAQBundle\Entity\WidgetFAQ $faq
      *
      * @return WidgetFAQItem
@@ -95,7 +96,7 @@ class WidgetFAQItem extends WidgetListingItem
     }
 
     /**
-     * Get faq
+     * Get faq.
      *
      * @return \Victoire\Widget\FAQBundle\Entity\WidgetFAQ
      */

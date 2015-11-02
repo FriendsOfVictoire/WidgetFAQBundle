@@ -7,13 +7,15 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Victoire\Widget\ListingBundle\Form\WidgetListingType;
 
 /**
- * WidgetFAQ form type
+ * WidgetFAQ form type.
  */
 class WidgetFAQType extends WidgetListingType
 {
     /**
-     * define form fields
+     * define form fields.
+     *
      * @param FormBuilderInterface $builder
+     *
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -23,46 +25,46 @@ class WidgetFAQType extends WidgetListingType
         $mode = $options['mode'];
 
         //if no entity is given, we generate the static form
-        $builder->add('faqItems', 'collection', array(
+        $builder->add('faqItems', 'collection', [
                     'type'         => new WidgetFAQItemType(),
                     'allow_add'    => true,
                     'allow_delete' => true,
                     'by_reference' => false,
-                    'options'      => array(
-                        'namespace'  => $namespace,
+                    'options'      => [
+                        'namespace'        => $namespace,
                         'businessEntityId' => $businessEntityId,
-                        'mode'       => $mode
-                    ),
-                    "attr"         => array('id' => 'static')
-                ));
+                        'mode'             => $mode,
+                    ],
+                    'attr'         => ['id' => 'static'],
+                ]);
 
         //add the mode to the form
-        $builder->add('mode', 'hidden', array(
-            'data' => $mode
-        ));
+        $builder->add('mode', 'hidden', [
+            'data' => $mode,
+        ]);
 
         //add the slot to the form
-        $builder->add('slot', 'hidden', array());
-
+        $builder->add('slot', 'hidden', []);
     }
 
     /**
-     * bind form to WidgetFAQ entity
+     * bind form to WidgetFAQ entity.
+     *
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
 
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\FAQBundle\Entity\WidgetFAQ',
             'widget'             => 'FAQ',
-            'translation_domain' => 'victoire'
-        ));
+            'translation_domain' => 'victoire',
+        ]);
     }
 
     /**
-     * get form name
+     * get form name.
      *
      * @return string The form name
      */

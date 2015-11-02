@@ -1,11 +1,12 @@
 <?php
+
 namespace Victoire\Widget\FAQBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Victoire\Widget\ListingBundle\Entity\WidgetListing;
 
 /**
- * ThemeList FAQ
+ * ThemeList FAQ.
  *
  * @ORM\Table("vic_widget_faq")
  * @ORM\Entity
@@ -17,12 +18,11 @@ class WidgetFAQ extends WidgetListing
      *
      * @ORM\OneToMany(targetEntity="WidgetFAQItem", mappedBy="faq", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
-     *
      */
     protected $faqItems;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -30,9 +30,10 @@ class WidgetFAQ extends WidgetListing
     }
 
     /**
-     * Set faqItems
+     * Set faqItems.
      *
-     * @param  array         $faqItems
+     * @param array $faqItems
+     *
      * @return WidgetListing
      */
     public function setFAQItems($faqItems)
@@ -44,10 +45,12 @@ class WidgetFAQ extends WidgetListing
 
         return $this;
     }
+
     /**
-     * Add faqItems
+     * Add faqItems.
      *
-     * @param  \Victoire\Widget\ListingBundle\Entity\WidgetListingItem $faqItems
+     * @param \Victoire\Widget\ListingBundle\Entity\WidgetListingItem $faqItems
+     *
      * @return WidgetListing
      */
     public function addFAQItem(WidgetFAQItem $faqItem)
@@ -59,7 +62,7 @@ class WidgetFAQ extends WidgetListing
     }
 
     /**
-     * Remove faqItems
+     * Remove faqItems.
      *
      * @param \Victoire\Widget\ListingBundle\Entity\WidgetListingItem $faqItems
      */
@@ -72,7 +75,7 @@ class WidgetFAQ extends WidgetListing
     }
 
     /**
-     * Get faqItems
+     * Get faqItems.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
