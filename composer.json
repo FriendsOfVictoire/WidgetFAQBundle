@@ -1,25 +1,41 @@
 {
-    "name": "friendsofvictoire/faq-widget",
-    "type": "symfony-bundle",
-    "description": "Victoire DCMS FAQ widget",
-    "keywords": ["DCMS", "Victoire", "widget", "FriendsofVictoire", "FoV", "Dynamic", "CMS", "FAQ"],
-    "homepage": "http://victoire.io",
-    "license": "MIT",
-    "authors": [
+    "name"             : "friendsofvictoire/faq-widget",
+    "type"             : "symfony-bundle",
+    "description"      : "Victoire DCMS FAQ widget",
+    "keywords"         : [
+        "DCMS",
+        "Victoire",
+        "widget",
+        "FriendsofVictoire",
+        "FoV",
+        "Dynamic",
+        "CMS",
+        "FAQ"
+    ],
+    "homepage"         : "http://victoire.io",
+    "license"          : "MIT",
+    "authors"          : [
         {
-            "name": "Leny BERNARD",
+            "name" : "Leny BERNARD",
             "email": "leny@victoire.io"
         }
     ],
-    "require": {
-        "php": ">=5.3.3",
-        "symfony/framework-bundle"          : "~2.3",
-        "victoire/victoire"                 : "~1.3.0",
-        "friendsofvictoire/listing-widget"  : "~1.3.0"
+    "require"          : {
+        "php"                             : ">=5.3.3",
+        "symfony/framework-bundle"        : "~2.3",
+        "victoire/victoire"               : "~1.3.0",
+        "friendsofvictoire/listing-widget": "1.3.x-dev"
     },
-    "autoload": {
-        "psr-0": { "Victoire\\Widget\\FAQBundle": "" }
+    "autoload"         : {
+        "psr-0": {
+            "Victoire\\Widget\\FAQBundle": ""
+        }
     },
     "minimum-stability": "dev",
-    "target-dir": "Victoire/Widget/FAQBundle"
+    "target-dir"       : "Victoire/Widget/FAQBundle",
+    "extra"            : {
+        "branch-alias": {
+            "dev-master": "1.3.x-dev"
+        }
+    }
 }
