@@ -71,7 +71,7 @@ class WidgetFAQ extends WidgetListing
         //set item as orphan
         $faqItems->setFAQ(null);
 
-        $this->faqItems->removeElement($FAQItems);
+        $this->faqItems->removeElement($faqItems);
     }
 
     /**
