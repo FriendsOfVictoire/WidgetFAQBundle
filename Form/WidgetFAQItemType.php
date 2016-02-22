@@ -2,8 +2,9 @@
 
 namespace Victoire\Widget\FAQBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Victoire\Widget\ListingBundle\Form\WidgetListingItemType;
 
 /**
@@ -24,35 +25,25 @@ class WidgetFAQItemType extends WidgetListingItemType
 
         $builder
             ->add('title', null, [
-                'label'    => 'form.listing.FAQ.question.label',
-                'required' => true, ])
-            ->add('answer', 'textarea', [
-                'label' => 'form.listing.FAQ.answer.label', ]);
+                'label' => 'form.listing.FAQ.question.label',
+                'required' => true,
+            ])
+            ->add('answer', TextareaType::class, [
+                'label' => 'form.listing.FAQ.answer.label',
+            ]);
     }
 
     /**
-     * bind form to WidgetFAQ entity.
-     *
-     * @param OptionsResolverInterface $resolver
+     * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\FAQBundle\Entity\WidgetFAQItem',
             'widget'             => null,
             'translation_domain' => 'victoire',
         ]);
-    }
-
-    /**
-     * get form name.
-     *
-     * @return string The form name
-     */
-    public function getName()
-    {
-        return 'victoire_widget_form_faqitem';
     }
 }

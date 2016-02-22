@@ -2,8 +2,10 @@
 
 namespace Victoire\Widget\FAQBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Victoire\Widget\ListingBundle\Form\WidgetListingType;
 
 /**
@@ -20,56 +22,40 @@ class WidgetFAQType extends WidgetListingType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $businessEntityId = $options['businessEntityId'];
-        $namespace = $options['namespace'];
-        $mode = $options['mode'];
-
         //if no entity is given, we generate the static form
-        $builder->add('faqItems', 'collection', [
-                    'type'         => new WidgetFAQItemType(),
+        $builder->add('faqItems', CollectionType::class, [
+                    'entry_type'   => WidgetFAQItemType::class,
                     'allow_add'    => true,
                     'allow_delete' => true,
                     'by_reference' => false,
-                    'options'      => [
-                        'namespace'        => $namespace,
-                        'businessEntityId' => $businessEntityId,
-                        'mode'             => $mode,
-                    ],
                     'attr'         => ['id' => 'static'],
+                    'options'      => [
+                        'namespace'        => $options['namespace'],
+                        'businessEntityId' => $options['businessEntityId'],
+                        'mode'             => $options['mode'],
+                    ],
                 ]);
 
         //add the mode to the form
-        $builder->add('mode', 'hidden', [
-            'data' => $mode,
+        $builder->add('mode', HiddenType::class, [
+            'data' => $options['mode'],
         ]);
 
         //add the slot to the form
-        $builder->add('slot', 'hidden', []);
+        $builder->add('slot', HiddenType::class, []);
     }
 
     /**
-     * bind form to WidgetFAQ entity.
-     *
-     * @param OptionsResolverInterface $resolver
+     * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        parent::setDefaultOptions($resolver);
+        parent::configureOptions($resolver);
 
         $resolver->setDefaults([
             'data_class'         => 'Victoire\Widget\FAQBundle\Entity\WidgetFAQ',
             'widget'             => 'FAQ',
             'translation_domain' => 'victoire',
         ]);
-    }
-
-    /**
-     * get form name.
-     *
-     * @return string The form name
-     */
-    public function getName()
-    {
-        return 'victoire_widget_form_faq';
     }
 }

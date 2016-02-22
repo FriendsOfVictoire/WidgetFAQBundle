@@ -15,4 +15,4 @@ services:
     victoire.widget.form.faq:
         class: Victoire\Widget\FAQBundle\Form\WidgetFAQType
         tags:
-            - { name: form.type , alias: victoire_widget_form_faq }
+            - { name: form.type }
