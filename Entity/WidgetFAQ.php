@@ -26,6 +26,7 @@ class WidgetFAQ extends WidgetListing
      */
     public function __construct()
     {
+        parent::__construct();
         $this->faqItems = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
