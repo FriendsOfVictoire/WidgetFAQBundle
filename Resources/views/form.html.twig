@@ -24,38 +24,34 @@
         sortWidgetListItems("{{ form.faqItems.vars.attr.id }}-list");
     });
 
-    var collectionHolder = $vic('ul.vic-items');
-    // ajoute un lien « add an item »
-    var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block">{{ 'widget.form.WidgetListingItemType.addItem.label'|trans }}</a>');
+    manageAddButton{{ form.vars.id }}();
 
-    var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
+    function manageAddButton{{ form.vars.id }}()
+    {
+      var collectionHolder = $vic('ul.vic-items');
+      // ajoute un lien « add an item »
+      var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block">{{ 'widget.form.WidgetListingItemType.addItem.label'|trans }}</a>');
 
-    jQuery(document).ready(function() {
-          // ajoute l'ancre « ajouter un item » et li à la balise ul
-          collectionHolder.append($newLinkContainer);
+      var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
 
-          $addItemLink.on('click', function(e) {
-              // empêche le lien de créer un « # » dans l'URL
-              e.preventDefault();
+      jQuery(document).ready(function() {
+            // ajoute l'ancre « ajouter un item » et li à la balise ul
+            collectionHolder.append($newLinkContainer);
 
-              // ajoute un nouveau formulaire item (voir le prochain bloc de code)
-              addItemForm(collectionHolder, $newLinkContainer);
-          });
-      });
+            $addItemLink.on('click', function(e) {
+                // empêche le lien de créer un « # » dans l'URL
+                e.preventDefault();
+              // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
+              var prototype = collectionHolder.attr('data-prototype');
 
-    function addItemForm(collectionHolder, $newLinkContainer) {
-        // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
-        var prototype = collectionHolder.attr('data-prototype');
-
-        // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
-        // la longueur de la collection courante
-        //@todo Fix this because collectionHolder.children().length is not correct :
-        //      think for a collectino with N items, if you delete a children in the middle of the collection, you have N-1 items but the last still have the N key so we can't use it)
-        var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
-        var currentFormContainer = $newLinkContainer.before(newForm);
-        showSelectedLinkType($vic('.linkType-select'));
+              // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
+              // la longueur de la collection courante
+              //@todo Fix this because collectionHolder.children().length is not correct :
+              //      think for a collectino with N items, if you delete a children in the middle of the collection, you have N-1 items but the last still have the N key so we can't use it)
+              var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+            });
+        });
     }
-
 
     $vic(document).on('click', 'button[data-action="remove-block"]', function(e) {
         e.preventDefault();
