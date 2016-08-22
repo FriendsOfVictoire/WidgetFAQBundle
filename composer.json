@@ -23,19 +23,13 @@
     "require"          : {
         "php"                             : ">=5.3.3",
         "symfony/framework-bundle"        : "~2.3",
-        "victoire/victoire"               : "~1.5",
-        "friendsofvictoire/listing-widget": "1.5.x-dev"
+        "victoire/victoire"               : "~2",
+        "friendsofvictoire/listing-widget": "~2"
     },
     "autoload"         : {
         "psr-0": {
             "Victoire\\Widget\\FAQBundle": ""
         }
     },
-    "minimum-stability": "dev",
-    "target-dir"       : "Victoire/Widget/FAQBundle",
-    "extra"            : {
-        "branch-alias": {
-            "dev-master": "1.5.x-dev"
-        }
-    }
+    "target-dir"       : "Victoire/Widget/FAQBundle"
 }
