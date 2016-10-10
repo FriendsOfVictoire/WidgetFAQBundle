@@ -45,6 +45,7 @@ class WidgetFAQType extends WidgetListingType
 
         //add the slot to the form
         $builder->add('slot', 'hidden', []);
+        parent::buildForm($builder, $options);
     }
 
     /**
