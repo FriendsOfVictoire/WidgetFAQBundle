@@ -1,16 +1,14 @@
 {% trans_default_domain "victoire" %}
-<div id="picker-{{ form.mode.vars.data }}" class="vic-tab-pane vic-active">
-  {{ form_start(form) }}
-    <ul class="vic-row vic-items" id="{{ form.faqItems.vars.attr.id }}-list" data-prototype="{% filter escape %}{% include 'VictoireWidgetFAQBundle::_itemForm.html.twig' with { 'item': form.faqItems.vars.prototype } %}{% endfilter %}">
-    {% for item in form.faqItems %}
-        {% include 'VictoireWidgetFAQBundle::_itemForm.html.twig' %}
-    {% endfor %}
-    </ul>
-    {% do form.faqItems.setRendered %}
+{{ form_start(form) }}
+<ul class="vic-row vic-items" id="{{ form.faqItems.vars.attr.id }}-list" data-prototype="{% filter escape %}{% include 'VictoireWidgetFAQBundle::_itemForm.html.twig' with { 'item': form.faqItems.vars.prototype } %}{% endfilter %}">
+{% for item in form.faqItems %}
+    {% include 'VictoireWidgetFAQBundle::_itemForm.html.twig' %}
+{% endfor %}
+</ul>
+{% do form.faqItems.setRendered %}
 
-    {{ form_rest(form) }}
-    {{ form_end(form) }}
-</div>
+{{ form_rest(form) }}
+{{ form_end(form) }}
 
 <script type="text/javascript">
 
@@ -26,31 +24,30 @@
 
     manageAddButton{{ form.vars.id }}();
 
-    function manageAddButton{{ form.vars.id }}()
-    {
-      var collectionHolder = $vic('ul.vic-items');
-      // ajoute un lien « add an item »
-      var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block">{{ 'widget.form.WidgetListingItemType.addItem.label'|trans }}</a>');
+    function manageAddButton{{ form.vars.id }}() {
+        var collectionHolder = $vic('ul.vic-items');
+        // ajoute un lien « add an item »
+        var $addItemLink = $vic('<a href="#" class="vic-btn vic-btn-add" class="vic-btn vic-btn-add add-request-block">{{ 'widget.form.WidgetListingItemType.addItem.label'|trans }}</a>');
 
-      var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
+        var $newLinkContainer = $vic('<li class="vic-col-lg-4 vic-col-lg-offset-8"></li>').append($addItemLink);
 
-      jQuery(document).ready(function() {
+        jQuery(document).ready(function() {
             // ajoute l'ancre « ajouter un item » et li à la balise ul
             collectionHolder.append($newLinkContainer);
 
             $addItemLink.on('click', function(e) {
                 // empêche le lien de créer un « # » dans l'URL
                 e.preventDefault();
-              // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
-              var prototype = collectionHolder.attr('data-prototype');
+                // Récupère l'élément ayant l'attribut data-prototype comme expliqué plus tôt
+                var prototype = collectionHolder.attr('data-prototype');
 
-              // Remplace '__name__' dans le HTML du prototype par un nombre basé sur
-              // la longueur de la collection courante
-              //@todo Fix this because collectionHolder.children().length is not correct :
-              //      think for a collectino with N items, if you delete a children in the middle of the collection, you have N-1 items but the last still have the N key so we can't use it)
-              var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
-            });
-        });
+                //@todo Fix this because collectionHolder.children().length is not correct :
+                //      think for a collectino with N items, if you delete a children in the middle of the collection, you have N-1 items but the last still have the N key so we can't use it)
+                var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+                $newLinkContainer.before(newForm);
+                showSelectedLinkType($vic('.linkType-select'));
+              });
+          });
     }
 
     $vic(document).on('click', 'button[data-action="remove-block"]', function(e) {
