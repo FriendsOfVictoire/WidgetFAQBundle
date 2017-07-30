@@ -22,7 +22,6 @@
     ],
     "require"          : {
         "php"                             : ">=5.3.3",
-        "symfony/framework-bundle"        : "~2.3",
         "victoire/victoire"               : "~2|~3.0",
         "friendsofvictoire/listing-widget": "~2"
     },
