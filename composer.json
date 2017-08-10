@@ -30,5 +30,6 @@
             "Victoire\\Widget\\FAQBundle": ""
         }
     },
+    "minimum-stability": "dev",
     "target-dir"       : "Victoire/Widget/FAQBundle"
 }
